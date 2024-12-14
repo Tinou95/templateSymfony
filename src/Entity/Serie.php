@@ -8,27 +8,18 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SerieRepository::class)]
-class Serie
+class Serie extends Media
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     /**
      * @var Collection<int, Season>
      */
-    #[ORM\OneToMany(targetEntity: Season::class, mappedBy: 'SerieId')]
+    #[ORM\OneToMany(targetEntity: Season::class, mappedBy: 'serie')]
     private Collection $seasons;
 
     public function __construct()
     {
+        parent::__construct();
         $this->seasons = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
@@ -43,7 +34,7 @@ class Serie
     {
         if (!$this->seasons->contains($season)) {
             $this->seasons->add($season);
-            $season->setSerieId($this);
+            $season->setSerie($this);
         }
 
         return $this;
@@ -53,8 +44,8 @@ class Serie
     {
         if ($this->seasons->removeElement($season)) {
             // set the owning side to null (unless already changed)
-            if ($season->getSerieId() === $this) {
-                $season->setSerieId(null);
+            if ($season->getSerie() === $this) {
+                $season->setSerie(null);
             }
         }
 
