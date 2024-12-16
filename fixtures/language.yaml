@@ -20,3 +20,15 @@ App\Entity\Language:
     language_ja:
         nom: 'Japonais'
         code: 'JA'
+    language_zh:
+        nom: 'Chinois'
+        code: 'ZH'
+    language_ru:
+        nom: 'Russe'
+        code: 'RU'
+    language_pt:
+        nom: 'Portugais'
+        code: 'PT'
+    language_nl:
+        nom: 'Néerlandais'
+        code: 'NL'

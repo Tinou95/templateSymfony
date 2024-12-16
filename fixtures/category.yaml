@@ -17,3 +17,9 @@ App\Entity\Category:
     category_horreur:
         nom: 'horreur'
         label: 'Horreur'
+    category_sci_fi:
+        nom: 'sci_fi'
+        label: 'Sci-fi'
+    category_thriller:
+        nom: 'thriller'
+        label: 'Thriller'
