@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %}Streemi - Inscription{% endblock %}
 {% block content %}
+    <div class="flex min-h-screen">
+        {% include 'parts/left_menu.html.twig' %}
         <main class="flex-1">
             <header class=" font-bold text-lg flex items-center md:hidden">
                 <span class="mr-6">
@@ -132,4 +134,5 @@
                 </div>
             </section>
         </main>
+    </div>
 {% endblock %}
